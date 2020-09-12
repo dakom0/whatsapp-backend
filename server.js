@@ -24,7 +24,7 @@ app.use(cors());
 
 
 // DB config
-const conn = "mongodb+srv://dakom1:whatsapp@cluster0.xzv2p.mongodb.net/whats-app?retryWrites=true&w=majority"
+const conn = process.env.DB_CONNECTION
 
 mongoose.connect(conn, {
     useCreateIndex: true,
