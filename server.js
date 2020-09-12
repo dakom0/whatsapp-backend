@@ -24,7 +24,7 @@ app.use(cors());
 
 
 // DB config
-const conn = process.env.DB_CONNECTION;
+const conn = "mongodb+srv://dakom1:whatsapp@cluster0.xzv2p.mongodb.net/whats-app?retryWrites=true&w=majority"
 
 mongoose.connect(conn, {
     useCreateIndex: true,
@@ -61,8 +61,6 @@ db.once("open", () => {
 
 // api routes
 app.get('/', (req, res) => res.status(200).send("Hello world"))
-
-app.get('/1', (req, res) => res.status(200).send("Hello One"))
 
 
 app.get('/messages/sync', (req, res)=> {
