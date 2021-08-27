@@ -88,9 +88,15 @@ app.post('/messages/new', (req, res)=> {
     })
 });
 
-app.delete('/messages/del', (req, res)=> {
+app.get('/messages/del', (req, res)=> {
 
-       Messages.deleteMany()
+       Messages.deleteMany((err, data) => {
+        if(err){
+            res.status(500).send(err)
+        }else{
+            res.status(200).send(data)
+        }    
+    })
 });
 
 
