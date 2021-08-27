@@ -8,7 +8,9 @@ import dotenv from 'dotenv'
 // app config
 const app = express()
 const port = process.env.PORT || 9000
+
 dotenv.config()
+
 const pusher = new Pusher({
     appId: '1071594',
     key: 'ee7f716a237417152a4f',
@@ -85,6 +87,13 @@ app.post('/messages/new', (req, res)=> {
         }
     })
 });
+
+app.delete('/messages/del', (req, res)=> {
+
+       Messages.deleteMany()
+});
+
+
 
 // listen
 app.listen(port, () => console.log(`listening on localhost: ${port}`));
